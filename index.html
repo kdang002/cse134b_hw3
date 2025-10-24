@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+
+    <!-- HEAD BEGINS -->
+	<head>
+		<meta charset="utf-8">
+		<title>CSE 134B - HW2_VyDang</title>
+
+		<style>
+            /* Hi Grader, this CSS Styling is a must have for me. Simply a darker mode so then I don't
+            have to stare at a whitescreen 24/7. Helps me relax my eyes :) */
+			/* :root { background-color: gray } */
+
+            /* === Custom Element #1: A Review Box === */
+            review-box {
+                display: block;
+                border: 2px solid #333;
+                border-radius: 12px;
+                padding: 1em;
+                margin: 1.5em 0;
+                background-color: #f9f9f9;
+            }
+
+            /* Optional extra styling for inner elements */
+            review-box h2 {
+                margin-top: 0;
+            }
+
+            review-box p {
+                margin-bottom: 1em;
+            }
+            /* === Custom Element #1: A Review Box === */
+
+
+
+		</style>
+
+	</head>
+    <!-- HEAD ENDS -->
+
+    <!-- BODY BEGINS -->
+	<body>
+		<header id="home">
+            <h1>Vy Kiet Dang's Personal Portfolio</h1>
+            <p>Welcome to the site. This site is something I do for fun to vlog myself. <br> 
+            Btw, I will ONLY style the background-color as "gray" because <em>I have my migrain and eye strain</em>.
+            </p>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="experiments.html">experiments.html</a></li>
+                </ul>
+            </nav>
+		</header>
+
+        <!-- MAIN BEGINS -->
+		<main>
+                <!-- JavaScript provides methods to control the dialog:
+                .show(): Opens the dialog as a non-modal: does not interrupt interactions with the rest of the page
+                .showModal(): Opens the dialog as a modal: does interrupt interactions ...
+                .close(): Closes the dialog. -->
+                <dialog open>
+                    <p>Welcome to Kiet's Page, just don't blow it up or press any <b>BIG RED BUTTON</b>! </p>
+                    <form method="dialog">
+                    <button>Got it!</button>
+                    </form>
+                </dialog>
+
+			<section id="about">
+				<h2>About Kiet</h2>
+				<p> 
+                    Kiet is currently an undergraduate student at <strong>UC San Diego</strong>, 
+                    majoring in <strong>Computer Science</strong>. 
+                    Kiet has always been amazed of <b>Robotics</b> technology, 
+                    especially application in the field of transportations. 
+                    Ever since moving to San Diego for college, 
+                    Kiet has fall in love with this place, and is hunting for j*bs 
+                    in order to stay with the warm sand and cold ocean. 
+                    He's also obsessed with <i>Beige and Rounded corners</i>. <br>
+                    Haven't mentioned, Kiet extremely loves cars.
+                </p>
+
+                <!-- Picture tag = multiple sources, one smartly chosen image base on screenszie or image format 
+                Much more flexible than pure <img> tag. The <img> at the bottom as a fallback if none of the <source> got displayed. --> 
+                <picture> 
+                    <source srcset="https://i.ytimg.com/vi/FbqjzUNh17M/hqdefault.jpg" media="(min-width: 180px)">
+                    <source srcset="https://i.ytimg.com/vi/iZt7Fwu91FI/maxresdefault.jpg" media="(min-width: 180px)">
+                    <img alt="Viper ACR V10" src="https://www.carscoops.com/wp-content/uploads/2022/09/Dodge-Viper-ACR-Extreme-3_1a.jpg" width="180">
+                </picture>
+			</section> <hr>
+            
+            <br>
+
+			<section>
+				<h3>Goal</h3>
+                <ol>
+                    <li>Landing a j*b after college, preferably into automotive industry.</li>
+                    <li>Get a Master Degree in the same field.</li>
+                    <li>Supports my 2 younger sister’s financially.</li>
+                    <li>Become a College Instructor at one point and have my own startup.</li>
+
+                </ol>
+                
+                <br>
+
+                <h3>Frustration</h3>
+                <ol>
+                    <li>J*b market.</li>
+                    <li>Home is a hemisphere away.</li>
+                    <li>College professor is a professional yapper.</li>
+                    <li>Overcooked Steak but Undercook Chicken.</li>
+                    <li>UC San Diego parking situations.</li>
+                    <li>Too broke for expensive hobbies.</li>
+                </ol>
+			</section> <hr>
+
+            <section>
+                <h3>Here is an example of &lt;svg&gt; tag. (disabled as placeholder)</h3>
+                <svg width="300" height="200">
+                    <!-- <polygon points="100,10 40,198 190,78 10,78 160,198" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" /> -->
+                </svg>
+            </section> <hr>
+
+            <section>
+                <h3>My All-Time Favorite Movie Article</h3>
+                <article>
+                        <a href="https://youtu.be/uYPbbksJxIg">
+                            <h4>Oppenheimer - Directed by Christopher Nolan (YouTube Trailer)</h4>
+                        </a>
+                        <!-- Straight Copy iframe from YouTube, if not will not work. -->
+                        <iframe width="304" height="174" src="https://www.youtube.com/embed/uYPbbksJxIg" title="Oppenheimer | New Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>					<p>
+                            Movie goes Kaboom, insane visuals by camera crew, 
+                            on top of magnificient audio by Ludwig Göransson.
+                        </p>
+                        <img alt="Oppenheimer Poster" src="https://c8.alamy.com/comp/2T2GNYE/oppenheimer-cillian-murphy-poster-2T2GNYE.jpg" width="180">
+                </article>	
+            </section>
+
+            <review-box>
+                <form action="#" method="post">
+                    <fieldset>
+                        <legend>Movie Feedback</legend>
+
+                        <p>
+                        <span>Have you seen the movie?</span><br>
+                        <label>
+                            <input type="radio" name="seen" value="yes" id="seen-yes">
+                            Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="seen" value="no" id="seen-no">
+                            No
+                        </label>
+                        </p>
+
+                        <p>
+                        <label for="opinion">If so, what do you think of it?</label><br>
+                        <textarea id="opinion" name="opinion" rows="5" cols="40" placeholder="Share your thoughts..."></textarea>
+                        </p>
+
+                        <p>
+                        <input type="submit" value="Submit">
+                        </p>
+                    </fieldset>
+                </form>
+
+                <!-- Will be more helpful when CSS and JS is being used -->
+                <label for="file">Downloading progress:</label>
+                <progress id="file" value="32" max="100">32%</progress>
+            </review-box>
+            
+            <hr>
+            
+            <button type="button" 
+            onclick="alert('MACHINE WILL SELF DESTRUCT IN 5 SECONDS.');">Try me UwU</button>
+
+
+            <!-- === Custom Element #2 usage === -->
+            <hello-world></hello-world>
+
+            <!-- === Custom Element #2 definition (JS allowed here) === -->
+            <script>
+                class HelloWorld extends HTMLElement {
+                constructor() {
+                    super();
+                    console.log("Hello world!");
+                }
+                }
+                customElements.define('hello-world', HelloWorld);
+            </script>
+
+
+
+		</main>
+        <!-- MAIN ENDS -->
+
+
+        <!-- FOOTER BEGINS -->
+		<footer>
+			<div>
+                <p>&copy; <span id="year"></span> Vy Kiet Dang. All rights reserved.</p>
+			</div>
+		</footer>
+        <!-- FOOTER ENDS -->
+
+        <!-- PLACE HOLDER FOR JS -->
+		<script>
+			// Set current year in footer
+			// document.getElementById('year').textContent = new Date().getFullYear();
+		</script>
+
+		<!-- JS Disable fail safe, learned it the hard way from 110 -->
+        <noscript>
+            <p>Hi, you are having your JavaScript turn off. This will affect some components of the website.</p>
+        </noscript>
+
+	</body>
+    <!-- BODY ENDS -->
+
+</html>
+
