@@ -1,5 +1,29 @@
-# cse134-hw2
-UCD and Semantic HTML Execution (Site Build Out Phase 1)
+# CSE134B - Standards Based CSS Use
+Standards Based CSS Responsive Web Design - Site Build Out Phase 2
 
-### Google Sheet HTML Checklists
-[View](https://docs.google.com/spreadsheets/d/1KcV7RWyfNLh2QEuD_W21SZU9spum9ksve_W9IqN0v9U/edit?usp=sharing)
+**Website Link:** [Add your site link here]  
+**GitHub Repo:** https://github.com/kdang002/cse134b_hw3
+
+---
+
+## ✅ Task Checklist
+
+| Task | Done | Score |
+|------|------|--------|
+| Use CSS Flexbox and/or Grid for layout | X | |
+| Use CSS Variables (I need 2 more) (with fallbacks, 2+ contexts) | ☐ |  |
+| Use Custom Fonts (with fallback) | X |  |
+| Use Relative Units (em, rem, %, fr, etc.) | X |  |
+| Use Dynamic Viewport Units (dvw, dvh, etc.) | ☐ |  |
+| Add CSS Animations / Transitions / Transforms | ☐ |  |
+| Add Media Queries (responsive design) | ☐ |  |
+| Use Nested and Scoped CSS | X |  |
+| Implement a Baseline 2024/2025 CSS Feature + 2-sentence description | ☐ |  |
+| Extra Credit: Wider gamut color using `color()` or `color-mix()` | X | +3 |
+| Extra Credit: Use new selector like `:has()` | ☐ | +2 |
+
+---
+
+**Notes:**  
+- Avoid excessive `<div>` usage.  
+- Keep CSS as standard and semantic as possible.  

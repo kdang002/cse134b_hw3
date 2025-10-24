@@ -5,7 +5,13 @@
 	<head>
 		<meta charset="utf-8">
 		<title>CSE 134B - HW2_VyDang</title>
+        <link rel="stylesheet" href="main.css" media="screen">
 
+        <!-- Importing Custom Porsche fonts directly from porsche.com -->
+        <link rel="preconnect" href="https://cdn.ui.porsche.com" crossorigin>
+        <link rel="dns-prefetch" href="https://cdn.ui.porsche.com" crossorigin>
+        <link rel="stylesheet" href="https://cdn.ui.porsche.com/porsche-design-system/styles/font-face.7076ba0.css" type="text/css" crossorigin>
+                
 		<style>
             /* Hi Grader, this CSS Styling is a must have for me. Simply a darker mode so then I don't
             have to stare at a whitescreen 24/7. Helps me relax my eyes :) */
@@ -33,6 +39,7 @@
 
 
 
+
 		</style>
 
 	</head>
@@ -40,18 +47,16 @@
 
     <!-- BODY BEGINS -->
 	<body>
-		<header id="home">
-            <h1>Vy Kiet Dang's Personal Portfolio</h1>
-            <p>Welcome to the site. This site is something I do for fun to vlog myself. <br> 
-            Btw, I will ONLY style the background-color as "gray" because <em>I have my migrain and eye strain</em>.
-            </p>
-            <nav>
-                <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="experiments.html">experiments.html</a></li>
-                </ul>
+		<header id="home" class="navbar">
+            <nav class="dropdown">
+                <button type="button" class="dropbtn">Menu</button>
+                <section class="dropdown-content">
+                    <a href="#home">Home</a>
+                    <a href="#about">About</a>
+                </section>
             </nav>
+
+            <h1 class="logo">Vy Kiet Dang</h1>
 		</header>
 
         <!-- MAIN BEGINS -->
@@ -60,12 +65,12 @@
                 .show(): Opens the dialog as a non-modal: does not interrupt interactions with the rest of the page
                 .showModal(): Opens the dialog as a modal: does interrupt interactions ...
                 .close(): Closes the dialog. -->
-                <dialog open>
+                <!-- <dialog open>
                     <p>Welcome to Kiet's Page, just don't blow it up or press any <b>BIG RED BUTTON</b>! </p>
                     <form method="dialog">
                     <button>Got it!</button>
                     </form>
-                </dialog>
+                </dialog> -->
 
 			<section id="about">
 				<h2>About Kiet</h2>
@@ -78,7 +83,7 @@
                     Kiet has fall in love with this place, and is hunting for j*bs 
                     in order to stay with the warm sand and cold ocean. 
                     He's also obsessed with <i>Beige and Rounded corners</i>. <br>
-                    Haven't mentioned, Kiet extremely loves cars.
+                    Haven't mentioned, <strong>Kiet extremely loves cars and anything that could potentially injured him at highspeed</strong>.
                 </p>
 
                 <!-- Picture tag = multiple sources, one smartly chosen image base on screenszie or image format 
@@ -92,28 +97,31 @@
             
             <br>
 
-			<section>
-				<h3>Goal</h3>
-                <ol>
-                    <li>Landing a j*b after college, preferably into automotive industry.</li>
-                    <li>Get a Master Degree in the same field.</li>
-                    <li>Supports my 2 younger sister’s financially.</li>
-                    <li>Become a College Instructor at one point and have my own startup.</li>
+			<section class="wrapper">
+                <div class="two-column-layout">
+                    <ul>
+                        <h3>GOAL</h3>
+                        <li>Landing a j*b after college, preferably into automotive industry.</li>
+                        <li>Get a Master Degree in the same field.</li>
+                        <li>Supports my 2 younger sister's financially.</li>
+                        <li>Become a College Instructor at one point and have my own startup.</li>
+                    </ul>
 
-                </ol>
+                    <ul>
+                        <h3>FRUSTRATION</h3>
+                        <li>J*b market.</li>
+                        <li>Home is a hemisphere away.</li>
+                        <li>College professor is a professional yapper.</li>
+                        <li>Overcooked Steak but Undercook Chicken.</li>
+                        <li>UC San Diego parking situations.</li>
+                        <li>Too broke for expensive hobbies.</li>
+                    </ul>
+
+                </div>
                 
-                <br>
-
-                <h3>Frustration</h3>
-                <ol>
-                    <li>J*b market.</li>
-                    <li>Home is a hemisphere away.</li>
-                    <li>College professor is a professional yapper.</li>
-                    <li>Overcooked Steak but Undercook Chicken.</li>
-                    <li>UC San Diego parking situations.</li>
-                    <li>Too broke for expensive hobbies.</li>
-                </ol>
-			</section> <hr>
+			</section> 
+            
+            <hr>
 
             <section>
                 <h3>Here is an example of &lt;svg&gt; tag. (disabled as placeholder)</h3>
