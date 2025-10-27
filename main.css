@@ -1,11 +1,23 @@
 * {
     background-color: beige;
     font-family: 'Porsche Next', Arial, sans-serif;
+    --main-border-radius: 15px;
+    --strong-color: red;
 }
 
+
+@keyframes myAnimation {
+  from {background-color: red;}
+  to {background-color: yellow;}
+}
+
+
+
 .navbar {
-/* 1. Set up Flexbox for row layout */
+    /* 1. Set up Flexbox for row layout */
     display: flex;
+    animation-name: myAnimation;
+    animation-duration: 4s;
 
     /* 2. Space items out horizontally (will push the three items to the ends) */
     justify-content: space-between;
@@ -20,98 +32,146 @@
     width: 100%;
     padding: 3px 5px;
     color: white;
-    z-index: 1000; /* Ensure it stays on top */
+    z-index: 1000;
+
 }
+
+    /* Dropdown Button */
+    .dropbtn {
+        background-color: rgb(199, 199, 60);
+        color: white;
+        padding: 16px;
+        font-size: 16px;
+        border: none;
+    }
+
+    /* The container <div> - needed to position the dropdown content */
+    .dropdown {
+    position: relative;
+    display: inline-block;
+    }
+
+    /* Dropdown Content (Hidden by Default) */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f1f1f1;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+    }
+
+    /* Links inside the dropdown */
+    .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    }
+
+    /* Change color of dropdown links on hover */
+    .dropdown-content a:hover {background-color: #ddd ;}
+
+    /* Show the dropdown menu on hover */
+    .dropdown:hover .dropdown-content {display: block;}
+
+    /* Change the background color of the dropdown button when the dropdown content is shown */
+    .dropdown:hover .dropbtn {background-color: #d4c27a;}
+
+
 
 /* Styling for the logo (h1) */
 .logo {
-    /* The key to centering: automatically takes up available space on both sides */
     margin: 0 auto;
-    
-    /* Your original styling for the logo's appearance */
     color: white;
-    border-bottom: 3px solid rgb(255, 38, 0);
     padding: 2px;
     width: fit-content;
     font-weight: bold;
     -webkit-text-stroke: 1px black;
-    /* Remove display: inline-block; and align-items: center; as they are handled by .navbar flex */
 }
 
-/* Dropdown Button */
-.dropbtn {
-  background-color: rgb(199, 199, 60);
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-  position: relative;
-  display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd ;}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #d4c27a;}
 
 
-h2, h3 {
-    /* Nothing for now, keeping it simple and clean */
-}
 
 body {
+    /* & h2, h3 {
+         Nothing for now, keeping it simple and clean 
+    }
+    */
+    @media screen and (max-width: 480px) {
+        body {
+            background-color: pink;
+        }
+    }
 
+
+    & p > b, strong {
+        color: var(--strong-color, red);
+    }
+
+    & .wrapper {
+        /* 1. Enable Flexbox on the parent */
+        display: flex;
+        max-inline-size: 750px;
+        margin-inline: auto;
+
+        & .two-column-layout {
+            display: grid;
+            grid-template-columns: repeat(2, 2fr);
+            border: solid;
+            border-radius: var(--main-border-radius, 15px);
+
+            & ol, ul > h3 {
+                text-align: center;
+                border-bottom: 2px solid;
+                width: fit-content;
+            }
+        }
+    }
+
+    & .about-me {
+                /* 1. Enable Flexbox on the parent */
+        display: flex;
+        max-inline-size: 750px;
+        margin-inline: auto;
+
+        & .two-row-layout {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            border: solid;
+            border-radius: var(--main-border-radius, 15px);
+        }
+    }
+
+    /* CSS Animation */
+    .blow-up {
+        padding: 15px 25px;
+        font-size: 24px;
+        text-align: center;
+        cursor: pointer;
+        outline: none;
+        color: #fff;
+        background-color: #04AA6D;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 9px #999;
+    }
+
+    .blow-up:hover {background-color: #3e8e41}
+
+    .blow-up:active {
+        background-color: #3e8e41;
+        box-shadow: 0 5px #666;
+        transform: translateY(4px);
+    }
+
+    
 }
 
-p > b, strong {
-    color: red;
-}
-
-.wrapper {
-/* 1. Enable Flexbox on the parent */
-    display: flex;
-    max-inline-size: 1000px;
-    margin-inline: auto;
-}
-
-.two-column-layout {
-    display: grid;
-    gap: 10px;
-    grid-template-columns: 1fr 1fr;
-    padding: 2px 2px 10px 10px ;
-}
-
-h3 > li {
-    display: inline-block;
-}
 
 
-ol, ul > h3 {
-    text-align: center;
-}
+
+
+
+

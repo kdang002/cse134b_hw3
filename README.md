@@ -11,11 +11,11 @@ Standards Based CSS Responsive Web Design - Site Build Out Phase 2
 | Task | Done | Score |
 |------|------|--------|
 | Use CSS Flexbox and/or Grid for layout | X | |
-| Use CSS Variables (I need 2 more) (with fallbacks, 2+ contexts) | ☐ |  |
+| Use CSS Variables (with fallbacks, 2+ contexts) | X |  |
 | Use Custom Fonts (with fallback) | X |  |
 | Use Relative Units (em, rem, %, fr, etc.) | X |  |
 | Use Dynamic Viewport Units (dvw, dvh, etc.) | ☐ |  |
-| Add CSS Animations / Transitions / Transforms | ☐ |  |
+| Add CSS Animations / Transitions / Transforms | X |  |
 | Add Media Queries (responsive design) | ☐ |  |
 | Use Nested and Scoped CSS | X |  |
 | Implement a Baseline 2024/2025 CSS Feature + 2-sentence description | ☐ |  |
