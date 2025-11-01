@@ -1,177 +1,302 @@
+@import url("https://cdn.ui.porsche.com/porsche-design-system/styles/font-face.7076ba0.css");
+
+/* ===========================
+   GLOBAL STYLES
+=========================== */
 * {
     background-color: beige;
     font-family: 'Porsche Next', Arial, sans-serif;
     --main-border-radius: 15px;
     --strong-color: red;
+    box-sizing: border-box;
 }
 
+*, *::before, *::after {
+    box-sizing: inherit;
+}
 
+html, body {
+    height: 100dvh; /* dynamic viewport for mobile browsers */
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Dynamic safe-area padding */
+body {
+    margin: 0;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+/* Strong text */
+p > b, strong, emph {
+    color: var(--strong-color, red);
+}
+
+/* ===========================
+   ANIMATION
+=========================== */
 @keyframes myAnimation {
-  from {background-color: red;}
-  to {background-color: yellow;}
+    from { background-color: red; }
+    to { background-color: yellow; }
 }
 
-
-
+/* ===========================
+   NAVBAR
+=========================== */
 .navbar {
-    /* 1. Set up Flexbox for row layout */
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
     animation-name: myAnimation;
     animation-duration: 4s;
-
-    /* 2. Space items out horizontally (will push the three items to the ends) */
-    justify-content: space-between;
-
-    /* 3. Vertically align items in the center */
-    align-items: center;
-
-    /* Positioning and general styling */
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 3px 5px;
     color: white;
     z-index: 1000;
-
 }
 
-    /* Dropdown Button */
-    .dropbtn {
-        background-color: rgb(199, 199, 60);
-        color: white;
-        padding: 16px;
-        font-size: 16px;
-        border: none;
-    }
+.dropbtn {
+    background-color: rgb(199, 199, 60);
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+}
 
-    /* The container <div> - needed to position the dropdown content */
-    .dropdown {
+.dropdown {
     position: relative;
     display: inline-block;
-    }
+}
 
-    /* Dropdown Content (Hidden by Default) */
-    .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f1f1f1;
-        min-width: 160px;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
-    }
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
 
-    /* Links inside the dropdown */
-    .dropdown-content a {
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-    }
+}
 
-    /* Change color of dropdown links on hover */
-    .dropdown-content a:hover {background-color: #ddd ;}
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
 
-    /* Show the dropdown menu on hover */
-    .dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-    /* Change the background color of the dropdown button when the dropdown content is shown */
-    .dropdown:hover .dropbtn {background-color: #d4c27a;}
+.dropdown:hover .dropbtn {
+    background-color: #d4c27a;
+}
 
-
-
-/* Styling for the logo (h1) */
 .logo {
-    margin: 0 auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     color: white;
-    padding: 2px;
-    width: fit-content;
     font-weight: bold;
     -webkit-text-stroke: 1px black;
+    margin: 0;
 }
 
+/* ===========================
+   WRAPPER & LAYOUTS
+=========================== */
+.wrapper {
+    display: grid;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 750px;
+    margin-inline: auto;
+    padding-inline: 1rem; /* mobile breathing room */
+}
 
+.two-column-layout {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    border: solid;
+    border-radius: var(--main-border-radius, 15px);
+    padding: 1rem;
+    width: max-content;
+    max-width: 100%;
+    column-gap: 2rem;
+}
 
+.two-column-layout ol,
+.two-column-layout ul > h3 {
+    text-align: center;
+    border-bottom: 2px solid;
+    width: fit-content;
+}
 
-body {
-    /* & h2, h3 {
-         Nothing for now, keeping it simple and clean 
+.two-column-layout article {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.about-me {
+    display: flex;
+    max-inline-size: 750px;
+    margin-inline: auto;
+}
+
+.two-row-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: auto;
+    padding: 1rem;
+    border: solid;
+    border-radius: var(--main-border-radius, 15px);
+}
+
+/* Buttons */
+.blow-up {
+    padding: 15px 25px;
+    font-size: 24px;
+    text-align: center;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    background-color: #04AA6D;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+}
+
+button:hover {
+    background-color: #3e8e41;
+}
+
+.blow-up:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
+
+/* ===========================
+   REVIEW BOX
+=========================== */
+review-box {
+    display: block;
+    border: 2px solid #333;
+    border-radius: 12px;
+    padding: 1em;
+    margin: 1.5em 0;
+    background-color: #f9f9f9;
+}
+
+review-box h2 {
+    margin-top: 0;
+}
+
+review-box p {
+    margin-bottom: 1em;
+}
+
+/* ===========================
+   MODERN CSS :has()
+=========================== */
+/* Forms with invalid fields */
+form:has(input:invalid, textarea:invalid) {
+    border: 2px solid red;
+    background-color: #fff4f4;
+}
+
+/* Highlight dropdown when active */
+.dropdown:has(.dropdown-content:hover) .dropbtn {
+    background-color: #c7b84d;
+    transition: background-color 0.3s ease;
+}
+
+/* Soft glow on review-box textarea focus */
+review-box:has(textarea:focus) {
+    box-shadow: 0 0 10px rgba(0, 128, 0, 0.3);
+    transition: box-shadow 0.3s ease;
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+=========================== */
+@media screen and (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
     }
-    */
-    @media screen and (max-width: 480px) {
-        body {
-            background-color: pink;
-        }
+
+    .wrapper .two-column-layout {
+        grid-template-columns: 1fr;
+        width: 100%;
+        border-style: none;
     }
 
-
-    & p > b, strong {
-        color: var(--strong-color, red);
-    }
-
-    & .wrapper {
-        /* 1. Enable Flexbox on the parent */
+    /* Mobile: if only one child, center and expand */
+    .two-column-layout:has(:only-child) {
         display: flex;
-        max-inline-size: 750px;
-        margin-inline: auto;
-
-        & .two-column-layout {
-            display: grid;
-            grid-template-columns: repeat(2, 2fr);
-            border: solid;
-            border-radius: var(--main-border-radius, 15px);
-
-            & ol, ul > h3 {
-                text-align: center;
-                border-bottom: 2px solid;
-                width: fit-content;
-            }
-        }
-    }
-
-    & .about-me {
-                /* 1. Enable Flexbox on the parent */
-        display: flex;
-        max-inline-size: 750px;
-        margin-inline: auto;
-
-        & .two-row-layout {
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            border: solid;
-            border-radius: var(--main-border-radius, 15px);
-        }
-    }
-
-    /* CSS Animation */
-    .blow-up {
-        padding: 15px 25px;
-        font-size: 24px;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
         text-align: center;
-        cursor: pointer;
-        outline: none;
-        color: #fff;
-        background-color: #04AA6D;
-        border: none;
-        border-radius: 15px;
-        box-shadow: 0 9px #999;
+        max-width: 600px;
+        margin-inline: auto;
+        padding: 1.5rem;
+        gap: 1rem;
+        border-style: none;
     }
 
-    .blow-up:hover {background-color: #3e8e41}
-
-    .blow-up:active {
-        background-color: #3e8e41;
-        box-shadow: 0 5px #666;
-        transform: translateY(4px);
+    iframe {
+        max-width: 100%;
+        height: auto;
     }
 
-    
+    .logo {
+        position: static;
+        transform: none;
+        text-align: center;
+        margin: 0.5rem auto;
+    }
 }
 
+/* Tablets and larger */
+@media screen and (min-width: 600px) {
+    .two-column-layout {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 750px;
+        margin-inline: auto;
+    }
+}
 
+/* ===========================
+   TEXT WRAP FOR LONG HEADINGS
+=========================== */
+.two-column-layout h3,
+.two-column-layout h4 {
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    text-align: center;
+    line-height: 1.3;
+}
 
-
-
-
-
+/* ===========================
+   NAVBAR STICKY
+=========================== */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+}

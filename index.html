@@ -4,215 +4,76 @@
     <!-- HEAD BEGINS -->
 	<head>
 		<meta charset="utf-8">
-		<title>CSE 134B - HW2_VyDang</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+		<title>CSE 134B - VyDang</title>
         <link rel="stylesheet" href="main.css" media="screen">
 
         <!-- Importing Custom Porsche fonts directly from porsche.com -->
         <link rel="preconnect" href="https://cdn.ui.porsche.com" crossorigin>
         <link rel="dns-prefetch" href="https://cdn.ui.porsche.com" crossorigin>
-        <link rel="stylesheet" href="https://cdn.ui.porsche.com/porsche-design-system/styles/font-face.7076ba0.css" type="text/css" crossorigin>
                 
-		<style>
-            /* Hi Grader, this CSS Styling is a must have for me. Simply a darker mode so then I don't
-            have to stare at a whitescreen 24/7. Helps me relax my eyes :) */
-			/* :root { background-color: gray } */
-
-            /* === Custom Element #1: A Review Box === */
-            review-box {
-                display: block;
-                border: 2px solid #333;
-                border-radius: 12px;
-                padding: 1em;
-                margin: 1.5em 0;
-                background-color: #f9f9f9;
-            }
-
-            /* Optional extra styling for inner elements */
-            review-box h2 {
-                margin-top: 0;
-            }
-
-            review-box p {
-                margin-bottom: 1em;
-            }
-            /* === Custom Element #1: A Review Box === */
-
-
-
-
-		</style>
-
 	</head>
-    <!-- HEAD ENDS -->
 
-    <!-- BODY BEGINS -->
-	<body>
+    <body>
 		<header class="navbar">
             <nav class="dropdown">
                 <button type="button" class="dropbtn">Menu</button>
                 <section class="dropdown-content">
-                    <a href="#home">Home</a>
-                    <a href="#about">About</a>
+                    <a href="about-me.html">About Me</a>
+                    <a href="hobby.html">My Hobby</a>
                 </section>
             </nav>
 
             <h1 class="logo">Vy Kiet Dang</h1>
 		</header>
-        <br><br><br>
-        <!-- MAIN BEGINS -->
-		<main>
-                <!-- JavaScript provides methods to control the dialog:
-                .show(): Opens the dialog as a non-modal: does not interrupt interactions with the rest of the page
-                .showModal(): Opens the dialog as a modal: does interrupt interactions ...
-                .close(): Closes the dialog. -->
-                <!-- <dialog open>
-                    <p>Welcome to Kiet's Page, just don't blow it up or press any <b>BIG RED BUTTON</b>! </p>
-                    <form method="dialog">
-                    <button>Got it!</button>
-                    </form>
-                </dialog> -->
 
-			<section class="about-me">
-                <div class="two-row-layout">
-                    <ul>
-                        <!-- Picture tag = multiple sources, one smartly chosen image base on screenszie or image format 
-                        Much more flexible than pure <img> tag. The <img> at the bottom as a fallback if none of the <source> got displayed. --> 
-                        <picture> 
-                            <source width="400" alt="Kiet (the middle left by the window) and his friends" srcset="KietAndHisFriends.jpg">
-                            <source width="360" alt="Porsche 911 GT3 RS" srcset="https://i.ytimg.com/vi/FbqjzUNh17M/hqdefault.jpg">
-                            <source width="360" alt="RoCars BMW M5 F90" srcset="https://i.ytimg.com/vi/iZt7Fwu91FI/maxresdefault.jpg">
-                            <img    width="360" alt="Viper ACR V10" src="https://www.carscoops.com/wp-content/uploads/2022/09/Dodge-Viper-ACR-Extreme-3_1a.jpg" width="180">
-                        </picture>
-                    </ul>
+        </header>
 
-                    <ul>
-                        <h3>About Kiet</h3>
+        <main>
+
+            <h2> Greetings, welcome to the landing page of my personal website.</h2>
+            <p> My name is Kiet, and I built this site to for one of my class project, and for fun.</p>
+
+            <section class="wrapper" id="about-me">
+                <div class="two-column-layout">                    
+                    <span>
+                        <h3>This is me -----&gt;</h3>
                         <p> 
-                            Kiet is currently an undergraduate student at <strong>UC San Diego</strong>, 
-                            majoring in <strong>Computer Science</strong>. 
-                            Kiet has always been amazed of <b>Robotics</b> technology, 
-                            especially application in the field of transportations. 
-                            Ever since moving to San Diego for college, 
-                            Kiet has fall in love with this place, and is hunting for j*bs 
-                            in order to stay with the warm sand and cold ocean. 
-                            He's also obsessed with <i>Beige and Rounded corners</i>. <br>
-                            Haven't mentioned, <strong>Kiet extremely loves cars and anything that could potentially injured him at highspeed</strong>.
+                            I enjoy doing random stuffs at random times since my attention span is weird. <br>
+                            But anyway, feel free to navigates around and click on random stuffs. <br>
+                            I promised <strong>I WILL NOT <emph>BLOW UP</emph> YOUR COMPUTER 💩</strong>
                         </p>
-                    </ul>
+                    </span>
+
+                    <!-- Picture tag = multiple sources, one smartly chosen image base on screenszie or image format 
+                        Much more flexible than pure <img> tag. The <img> at the bottom as a fallback if none of the <source> got displayed. --> 
+                    <figure>
+                        <picture> 
+                            <!-- width=700 will break the look of the CSS, pushing <h3> and <span> out of the border -->
+                            <source height="600" alt="Kiet at a Lake" srcset="resources\images\Kiet_Lake.jpg">
+                            <img    width="400" alt="Pink Kiet" src="resources\images\Kiet_Pink.jpg" width="180">
+                        </picture>
+                        <figcaption>Kiet at Jiu Zhai Gou</figcaption>
+                    </figure>
                 </div>
             </section>
 
-            
-            <hr>
-            
-            <br>
-
-			<section class="wrapper" >
-                <div class="two-column-layout">
-                    <ul>
-                        <h3>GOAL</h3>
-                        <li>Landing a j*b after college, preferably into automotive industry.</li>
-                        <li>Get a Master Degree in the same field.</li>
-                        <li>Supports my 2 younger sister's financially.</li>
-                        <li>Become a College Instructor at one point and have my own startup.</li>
-                    </ul>
-
-                    <ul>
-                        <h3>FRUSTRATION</h3>
-                        <li>J*b market.</li>
-                        <li>Home is a hemisphere away.</li>
-                        <li>College professor is a professional yapper.</li>
-                        <li>Overcooked Steak but Undercook Chicken.</li>
-                        <li>UC San Diego parking situations.</li>
-                        <li>Too broke for expensive hobbies.</li>
-                    </ul>
-
-                </div>
-                
-			</section> 
-            
-            <hr>
-
-            <section>
-                <h3>Here is an example of &lt;svg&gt; tag. (disabled as placeholder)</h3>
-                <svg width="300" height="200">
-                    <!-- <polygon points="100,10 40,198 190,78 10,78 160,198" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" /> -->
-                </svg>
-            </section> <hr>
-
-            <section>
-                <h3>My All-Time Favorite Movie Article</h3>
-                <article>
-                        <a href="https://youtu.be/uYPbbksJxIg">
-                            <h4>Oppenheimer - Directed by Christopher Nolan (YouTube Trailer)</h4>
-                        </a>
-                        <!-- Straight Copy iframe from YouTube, if not will not work. -->
-                        <iframe loading="lazy" width="304" height="174" src="https://www.youtube.com/embed/uYPbbksJxIg" title="Oppenheimer | New Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>					<p>
-                            Movie goes Kaboom, insane visuals by camera crew, 
-                            on top of magnificient audio by Ludwig Göransson.
-                        </p>
-                        <img loading="lazy" alt="Oppenheimer Poster" src="https://c8.alamy.com/comp/2T2GNYE/oppenheimer-cillian-murphy-poster-2T2GNYE.jpg" width="180">
-                </article>	
-            </section>
-
-            <review-box>
-                <form action="#" method="post">
-                    <fieldset>
-                        <legend>Movie Feedback</legend>
-
-                        <p>
-                        <span>Have you seen the movie?</span><br>
-                        <label>
-                            <input type="radio" name="seen" value="yes" id="seen-yes">
-                            Yes
-                        </label>
-                        <label>
-                            <input type="radio" name="seen" value="no" id="seen-no">
-                            No
-                        </label>
-                        </p>
-
-                        <p>
-                        <label for="opinion">If so, what do you think of it?</label><br>
-                        <textarea id="opinion" name="opinion" rows="5" cols="40" placeholder="Share your thoughts..."></textarea>
-                        </p>
-
-                        <p>
-                        <input type="submit" value="Submit">
-                        </p>
-                    </fieldset>
-                </form>
-
-                <!-- Will be more helpful when CSS and JS is being used -->
-                <label for="file">Downloading progress:</label>
-                <progress id="file" value="32" max="100">32%</progress>
-            </review-box>
-            
-            <hr>
-            
-            <button type="button" class="blow-up"
-            onclick="alert('MACHINE WILL SELF DESTRUCT IN 5 SECONDS.');">Try me UwU</button>
-
-
-            <!-- === Custom Element #2 usage === -->
-            <hello-world></hello-world>
-
-            <!-- === Custom Element #2 definition (JS allowed here) === -->
+            <!-- === Custom Element #2 usage & definition (JS allowed here) BEGINS === -->
+            <hello-world>
+            </hello-world>
             <script>
                 class HelloWorld extends HTMLElement {
                 constructor() {
                     super();
-                    console.log("Hello world!");
-                }
+                    console.log("Hi USER!!!!!!\n☆*: .｡. o(≧▽≦)o .｡.:*☆");
+                    }
                 }
                 customElements.define('hello-world', HelloWorld);
             </script>
+            <!-- === Custom Element #2 usage & definition (JS allowed here) ENDS === -->
 
-
-
-		</main>
-        <!-- MAIN ENDS -->
-
+        </main>
 
         <!-- FOOTER BEGINS -->
 		<footer>
@@ -233,8 +94,6 @@
             <p>Hi, you are having your JavaScript turn off. This will affect some components of the website.</p>
         </noscript>
 
-	</body>
-    <!-- BODY ENDS -->
 
+    </body>
 </html>
-

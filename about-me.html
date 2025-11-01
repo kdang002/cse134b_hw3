@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+
+    <!-- HEAD BEGINS -->
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+
+		<title>CSE 134B - VyDang</title>
+        <link rel="stylesheet" href="main.css" media="screen">
+
+        <!-- Importing Custom Porsche fonts directly from porsche.com -->
+        <link rel="preconnect" href="https://cdn.ui.porsche.com" crossorigin>
+        <link rel="dns-prefetch" href="https://cdn.ui.porsche.com" crossorigin>
+
+	</head>
+    <!-- HEAD ENDS -->
+
+    <!-- BODY BEGINS -->
+	<body>
+		<header class="navbar">
+            <nav class="dropdown">
+                <button type="button" class="dropbtn">Menu</button>
+                <section class="dropdown-content">
+                    <a href="index.html">Home</a>
+                    <a href="hobby.html">My Hobby</a>
+                </section>
+            </nav>
+
+            <h1 class="logo">Vy Kiet Dang</h1>
+		</header>
+        <!-- MAIN BEGINS -->
+		<main>
+            <br>
+                <!-- JavaScript provides methods to control the dialog:
+                .show(): Opens the dialog as a non-modal: does not interrupt interactions with the rest of the page
+                .showModal(): Opens the dialog as a modal: does interrupt interactions ...
+                .close(): Closes the dialog. -->
+                <!-- <dialog open>
+                    <p>Welcome to Kiet's Page, just don't blow it up or press any <b>BIG RED BUTTON</b>! </p>
+                    <form method="dialog">
+                    <button>Got it!</button>
+                    </form>
+                </dialog> -->
+
+			<section class="about-me" id="about-me">
+                <div class="two-row-layout">
+                        <!-- Picture tag = multiple sources, one smartly chosen image base on screenszie or image format 
+                        Much more flexible than pure <img> tag. The <img> at the bottom as a fallback if none of the <source> got displayed. --> 
+                        <picture> 
+                            <source width="400" alt="Kiet (the middle left by the window) and his friends" srcset="resources\images\KietAndHisFriends.jpg">
+                            <img    width="400" alt="Kiet at Jiu Zhai Gou " src="resources\images\Kiet_JZG.jpg" width="180">
+                        </picture>
+
+                        <h3>About Kiet</h3>
+                        <p> 
+                            Kiet spent 3 years at Pasadena City College before transferring to <strong>UC San Diego</strong>, 
+                            majoring in <strong>Computer Science</strong>. 
+                            Kiet has always been amazed of <b>Robotics</b> technology, 
+                            especially application in the field of transportations. 
+                            Ever since moving to San Diego for college, 
+                            Kiet has fall in love with this place, and is hunting for j*bs 
+                            in order to stay with the warm sand and cold ocean. <br>
+                            He's also obsessed with <emph>Beige and Rounded corners</emph>. <br>
+                            Haven't mentioned, <strong>Kiet extremely loves cars and anything that could potentially injured him at highspeed</strong>.
+                        </p>
+                </div>
+            </section>
+
+            
+            <hr>
+            
+
+			<section class="wrapper" >
+                <div class="two-column-layout">
+                    <ul>
+                        <h3>GOAL</h3>
+                        <li>Landing a j*b after college, preferably into automotive industry.</li>
+                        <li>Get a Master Degree in the same field.</li>
+                        <li>Supports my 2 younger sister's financially.</li>
+                        <li>Become a College Instructor at one point and have my own startup.</li>
+                    </ul>
+
+                    <ul>
+                        <h3>FRUSTRATION</h3>
+                        <li>J*b market.</li>
+                        <li>Home is a hemisphere away.</li>
+                        <li>College professor is a professional yapper.</li>
+                        <li>Overcooked Steak but Undercook Chicken.</li>
+                        <li>UC San Diego parking situations.</li>
+                        <li>Too broke for expensive hobbies.</li>
+                    </ul>
+                </div>
+			</section> 
+            
+            <hr>
+
+
+            <section class="wrapper">
+                <div class="two-column-layout">
+                <span>
+                    <article>
+                            <h3>My All-Time Favorite Movie Article</h3>
+                            <a href="https://youtu.be/uYPbbksJxIg">
+                                <h4>Oppenheimer - Directed by Christopher Nolan (YouTube Trailer)</h4>
+                            </a>
+                            <!-- Straight Copy iframe from YouTube -->
+                            <iframe loading="lazy" width="304" height="174" src="https://www.youtube.com/embed/uYPbbksJxIg" title="Oppenheimer | New Trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>					
+                    </article>	
+                </span>
+
+                <span>
+                    <review-box>
+                        <form action="#" method="post">
+                            <fieldset>
+                                <legend>Movie Feedback</legend>
+
+                                <p>
+                                <span>Have you seen the movie?</span><br>
+                                <label>
+                                    <input type="radio" name="seen" value="yes" id="seen-yes">
+                                    Yes
+                                </label>
+                                <label>
+                                    <input type="radio" name="seen" value="no" id="seen-no">
+                                    No
+                                </label>
+                                </p>
+
+                                <p>
+                                <label for="opinion">If so, what do you think of it?</label><br>
+                                <textarea id="opinion" name="opinion" rows="5" cols="40" placeholder="Share your thoughts..."></textarea>
+                                </p>
+
+                                <p>
+                                <button type="submit" value="Submit">Submit</button>
+                                </p>
+                            </fieldset>
+                        </form>
+
+                        <!-- Will be more helpful when CSS and JS is being used -->
+                        <label for="file">Uploading progress:</label>
+                        <progress id="file" value="32" max="100">0%</progress>
+                    </review-box>
+
+                </span>
+                
+                </div>
+            </section>
+
+            
+            <hr>
+            
+            <button type="button" class="blow-up"
+            onclick="alert('MACHINE WILL SELF DESTRUCT IN 5 SECONDS.');">Try me UwU</button>
+
+            <section>
+                <h3>Here is an example of &lt;svg&gt; tag. (disabled as placeholder)</h3>
+                <svg width="300" height="200">
+                    <!-- <polygon points="100,10 40,198 190,78 10,78 160,198" style="fill:lime;stroke:purple;stroke-width:5;fill-rule:evenodd;" /> -->
+                </svg>
+            </section> <hr>
+
+
+            <!-- === Custom Element #2 usage === -->
+            <hello-world>
+            </hello-world>
+            <!-- === Custom Element #2 definition (JS allowed here) === -->
+            <script>
+                class HelloWorld extends HTMLElement {
+                constructor() {
+                    super();
+                    console.log("(￣y▽￣)╭ Ohohoho.....");
+                    }
+                }
+                customElements.define('hello-world', HelloWorld);
+            </script>
+
+
+
+		</main>
+        <!-- MAIN ENDS -->
+
+
+        <!-- FOOTER BEGINS -->
+		<footer>
+			<div>
+                <p>&copy; <span id="year"></span> Vy Kiet Dang. All rights reserved.</p>
+			</div>
+		</footer>
+        <!-- FOOTER ENDS -->
+
+        <!-- PLACE HOLDER FOR JS -->
+		<script>
+			// Set current year in footer
+			// document.getElementById('year').textContent = new Date().getFullYear();
+		</script>
+
+		<!-- JS Disable fail safe, learned it the hard way from 110 -->
+        <noscript>
+            <p>Hi, you are having your JavaScript turn off. This will affect some components of the website.</p>
+        </noscript>
+
+	</body>
+    <!-- BODY ENDS -->
+
+</html>
+
