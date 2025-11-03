@@ -316,6 +316,8 @@ main > p {
     box-shadow: 0 9px #999;
     min-width: 44px;
     min-height: 44px;
+    margin: auto;
+    display: grid;
 }
 
 button:hover {
@@ -352,7 +354,9 @@ review-box p {
 }
 
 /* ===========================
-    MODERN CSS :has()
+    MODERN CSS :has() : Select the <form> that specifically 
+    :has input:invalid and textarea:invalid, 
+    and style that <form>
 =========================== */
 form:has(input:invalid, textarea:invalid) {
     border: 2px solid red;
@@ -367,6 +371,10 @@ form:has(input:invalid, textarea:invalid) {
 review-box:has(textarea:focus) {
     box-shadow: 0 0 10px rgba(0, 128, 0, 0.3);
     transition: box-shadow 0.3s ease;
+}
+
+body:has(#my-popover:popover-open) {
+    overflow: hidden;
 }
 
 /* ===========================
@@ -456,6 +464,14 @@ footer {
     TABLET RESPONSIVE (601px - 1024px)
 ====================================================== */
 @media screen and (min-width: 601px) and (max-width: 1024px) {
+    p { 
+        font-size: 1.2rem;
+    }
+
+    li {
+        font-size: 1.1rem;
+    }
+    
     .wrapper {
         max-width: 90%;
         padding-inline: 2rem;
