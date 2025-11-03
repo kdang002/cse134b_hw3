@@ -20,6 +20,7 @@ html, body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
+    animation: slideDown 0.7s ease-in-out;
 }
 
 body {
@@ -28,14 +29,13 @@ body {
     padding-bottom: env(safe-area-inset-bottom);
 }
 
-p > b, strong, emph {
+p > b, strong, em {
     color: var(--strong-color, red);
 }
 
 /* ===========================
     ANIMATION
 =========================== */
-
 @keyframes slideDown {
     from {
         opacity: 0;
@@ -55,8 +55,6 @@ p > b, strong, emph {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    animation-name: myAnimation;
-    animation-duration: 4s;
     position: sticky;
     top: 0;
     left: 0;
@@ -156,7 +154,8 @@ p > b, strong, emph {
 }
 
 .dropbtn {
-    background-color: rgb(199, 199, 60);
+    background-color: color-mix(in srgb, rgb(199, 199, 60) 70%, white);
+    background-color: rgb(199, 199, 60); /* Fallback */
     color: white;
     padding: 16px 24px;
     font-size: 16px;
@@ -224,14 +223,14 @@ p > b, strong, emph {
 main {
     padding: 1rem;
     margin-top: 80px;
-}
 
-main h2 {
-    text-align: center;
-}
+    & h2 {
+        text-align: center;
+    }
 
-main > p {
-    text-align: center;
+    & > p {
+        text-align: center;
+    }
 }
 
 .two-column-layout {
@@ -246,43 +245,61 @@ main > p {
     row-gap: 1rem;
     overflow: hidden;  /* Clips anything trying to escape */
     transition: transform 500ms ease;  /* Transition on element */
+
+    & ol > li:first-child , ul > li:first-child {
+        list-style: none;
+        font-weight: bold;
+        font-size: 1.2em;
+        text-align: center;
+        border-bottom: 2px solid;
+        width: fit-content;
+        margin: 0 auto 0.5rem auto;
+        padding-bottom: 0.25rem;
+    }
+
+    & article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    /* Responsive Images */
+    & img, 
+    & picture img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;       
+        object-position: center;
+    }
+
+    & figure {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    & figcaption {
+        margin-top: 0.5rem;
+        font-style: italic;
+    }
+
+
+    /* ===========================
+    TEXT WRAP FOR LONG HEADINGS
+    =========================== */
+    & h3, h4 {
+        word-wrap: break-word;
+        overflow-wrap: anywhere;
+        text-align: center;
+        line-height: 1.3;
+    }
+
 }
 
 .two-column-layout:hover  {
     transform: scale(1.05);
-}
-
-.two-column-layout ol,
-.two-column-layout ul > h3 {
-    text-align: center;
-    border-bottom: 2px solid;
-    width: fit-content;
-}
-
-.two-column-layout article {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-/* Responsive Images */
-.two-column-layout img,
-.two-column-layout picture {
-    max-width: 100%;
-    height: auto;
-}
-
-.two-column-layout figure {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.two-column-layout figcaption {
-    margin-top: 0.5rem;
-    font-style: italic;
 }
 
 .about-me {
@@ -300,6 +317,15 @@ main > p {
     padding: 1rem;
     border: solid;
     border-radius: var(--main-border-radius, 15px);
+
+    & img, 
+    & picture img {
+        max-width: 100%;
+        height: auto;
+        object-fit: cover;       
+        object-position: center;
+    }
+
 }
 
 /* Buttons */
@@ -318,10 +344,11 @@ main > p {
     min-height: 44px;
     margin: auto;
     display: grid;
+
 }
 
 button:hover {
-    background-color: rgb(212, 68, 68);
+    background-color: color(srgb 83.1% 26.7% 26.7%);
 }
 
 .blow-up:active {
@@ -343,49 +370,48 @@ review-box {
     width: 100%;
     box-sizing: border-box;
 
-}
+    & h2 {
+        margin-top: 0;
+    }
 
-review-box h2 {
-    margin-top: 0;
-}
-
-review-box p {
-    margin-bottom: 1em;
+    & p {
+        margin-bottom: 1em;
+    }
 }
 
 /* ===========================
-    MODERN CSS :has() : Select the <form> that specifically 
-    :has input:invalid and textarea:invalid, 
-    and style that <form>
+    MODERN CSS :has() and <pop-over>
 =========================== */
+
+/* Select the <form> that specifically 
+    :has input:invalid and textarea:invalid, 
+    and style that <form> */
 form:has(input:invalid, textarea:invalid) {
     border: 2px solid red;
+    background-color: color(srgb 100% 95.7% 95.7%);
     background-color: #fff4f4;
 }
 
+/* Select the .dropdown that specifically 
+    :has .dropdown-content:hover and .dropbtn.
+    Function: highlight them whenever hovered over the dropdown content */
 .dropdown:has(.dropdown-content:hover) .dropbtn {
+    background-color: color(srgb 98.0% 72.2% 30.2%);
     background-color: #c7b84d;
     transition: background-color 0.3s ease;
 }
 
+/* Select the <review-box> that specifically 
+    :has textarea:focus.
+    Function: adds a green glow effect when the <textarea> inside it is focused */
 review-box:has(textarea:focus) {
-    box-shadow: 0 0 10px rgba(0, 128, 0, 0.3);
+    box-shadow: 0 0 30px rgba(0, 128, 0, 0.3);
     transition: box-shadow 0.3s ease;
 }
 
+/* Disable the user from scrolling as a prank */
 body:has(#my-popover:popover-open) {
     overflow: hidden;
-}
-
-/* ===========================
-    TEXT WRAP FOR LONG HEADINGS
-=========================== */
-.two-column-layout h3,
-.two-column-layout h4 {
-    word-wrap: break-word;
-    overflow-wrap: anywhere;
-    text-align: center;
-    line-height: 1.3;
 }
 
 footer {
@@ -534,27 +560,26 @@ footer {
 
     main {
         margin-top: 100px;
-    }
 
-    main h2 {
-        font-size: 2.5rem;
-    }
+        & h2 {
+            font-size: 2.5rem;
+        }
 
-    main > p {
-        font-size: 1.2rem;
+        & > p {
+            font-size: 1.2rem;
+        }
     }
 
     .two-row-layout {
         max-width: 1000px;
         padding: 2rem;
+
+        & img {
+            max-width: 600px;  /* Prevent huge images */
+        }
+
+        & p {
+            font-size: 1.1rem;  /* Larger, easier to read */
+        }
     }   
-
-    .two-row-layout img {
-        max-width: 600px;  /* Prevent huge images */
-    }
-
-    .two-row-layout p {
-        font-size: 1.1rem;  /* Larger, easier to read */
-    }
-
 }

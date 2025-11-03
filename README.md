@@ -16,7 +16,7 @@ Standards Based CSS Responsive Web Design - Site Build Out Phase 2
 | Use Relative Units (em, rem, %, fr, etc.) | X |  |
 | Use Dynamic Viewport Units (dvw, dvh, etc.) | X |  |
 | Add CSS Animations / Transitions / Transforms | X |  |
-| Add Media Queries (responsive design) | X |  | # SEE PART 3 - on going
+| Add Media Queries (responsive design) | X |  | 
 | Use Nested and Scoped CSS | X |  |
 | Implement a Baseline 2024/2025 CSS Feature + 2-sentence description | X |  |
 | Extra Credit: Wider gamut color using `color()` or `color-mix()` | X | +3 |
@@ -24,6 +24,10 @@ Standards Based CSS Responsive Web Design - Site Build Out Phase 2
 
 ---
 
-**Notes:**  
-- Avoid excessive `<div>` usage.  
-- Keep CSS as standard and semantic as possible.  
+Baseline 2025/2024 prompt on using :has() and \<popover\>
+- Select the \<form\> that specifically :has input:invalid and textarea:invalid.
+Function: highlight them red when input is invalid.
+- Select the .dropdown that specifically :has .dropdown-content:hover and .dropbtn.
+Function: highlight them whenever hovered over the dropdown content.
+- Select the \<review-box\> that specifically :has textarea:focus.
+Function: adds a green glow effect when the \<textarea\> inside it is focused.
