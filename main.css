@@ -222,7 +222,7 @@ p > b, strong, em {
 
 main {
     padding: 1rem;
-    margin-top: 80px;
+    margin-top: 40px;
 
     & h2 {
         text-align: center;
@@ -267,6 +267,7 @@ main {
     /* Responsive Images */
     & img, 
     & picture img {
+        content-visibility: auto;
         max-width: 100%;
         height: auto;
         object-fit: cover;       
@@ -320,12 +321,17 @@ main {
 
     & img, 
     & picture img {
+        content-visibility: auto;
         max-width: 100%;
         height: auto;
         object-fit: cover;       
         object-position: center;
     }
 
+}
+
+#this-is-kiet {
+    align-content: center;
 }
 
 /* Buttons */
@@ -361,6 +367,7 @@ button:hover {
     REVIEW BOX
 =========================== */
 review-box {
+    content-visibility: auto;
     display: block;
     border: 2px solid #333;
     border-radius: 12px;
