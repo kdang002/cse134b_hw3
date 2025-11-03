@@ -1,8 +1,8 @@
 @import url("https://cdn.ui.porsche.com/porsche-design-system/styles/font-face.7076ba0.css");
 
-/* ===========================
-   GLOBAL STYLES
-=========================== */
+/* ======================================================
+    GLOBAL STYLES
+====================================================== */
 * {
     background-color: beige;
     font-family: 'Porsche Next', Arial, sans-serif;
@@ -16,34 +16,39 @@
 }
 
 html, body {
-    height: 100dvh; /* dynamic viewport for mobile browsers */
+    height: 100dvh;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
 
-/* Dynamic safe-area padding */
 body {
     margin: 0;
     padding-top: env(safe-area-inset-top);
     padding-bottom: env(safe-area-inset-bottom);
 }
 
-/* Strong text */
 p > b, strong, emph {
     color: var(--strong-color, red);
 }
 
 /* ===========================
-   ANIMATION
+    ANIMATION
 =========================== */
-@keyframes myAnimation {
-    from { background-color: red; }
-    to { background-color: yellow; }
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* ===========================
-   NAVBAR
+    NAVBAR - DESKTOP DEFAULT
 =========================== */
 .navbar {
     display: flex;
@@ -52,25 +57,113 @@ p > b, strong, emph {
     align-items: center;
     animation-name: myAnimation;
     animation-duration: 4s;
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%;
     color: white;
     z-index: 1000;
+    padding: 1rem;
+}
+
+/* ===========================
+    PURE CSS HAMBURGER MENU
+=========================== */
+/* Hide the checkbox */
+#menu-toggle {
+    display: none;
+}
+
+/* Hamburger Icon Container (hidden by default) */
+.hamburger-label {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 10px;
+    background-color: rgb(199, 199, 60);
+    border: none;
+    border-radius: 5px;
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+
+/* Hamburger Lines */
+.hamburger-label span {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    transition: all 0.3s ease;
+    display: block;
+}
+
+/* Animate hamburger to X when checked */
+#menu-toggle:checked + .hamburger-label span:nth-child(1) {
+    transform: rotate(45deg) translate(7px, 7px);
+}
+
+#menu-toggle:checked + .hamburger-label span:nth-child(2) {
+    opacity: 0;
+}
+
+#menu-toggle:checked + .hamburger-label span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu (hidden by default) */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #f1f1f1;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 999;
+}
+
+/* Show mobile menu when checkbox is checked */
+#menu-toggle:checked ~ .mobile-menu {
+    display: block;
+    animation: slideDown 0.3s ease;
+}
+
+.mobile-menu a {
+    color: black;
+    padding: 20px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 18px;
+    border-bottom: 1px solid #ddd;
+    min-height: 44px;
+    transition: background-color 0.2s ease;
+}
+
+.mobile-menu a:hover {
+    background-color: #ddd;
+}
+
+.mobile-menu a:active {
+    background-color: #ccc;
+}
+
+/* Desktop Menu */
+.dropdown {
+    position: relative;
+    display: inline-block;
 }
 
 .dropbtn {
     background-color: rgb(199, 199, 60);
     color: white;
-    padding: 16px;
+    padding: 16px 24px;
     font-size: 16px;
     border: none;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
+    cursor: pointer;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 .dropdown-content {
@@ -84,13 +177,18 @@ p > b, strong, emph {
 
 .dropdown-content a {
     color: black;
-    padding: 12px 16px;
+    padding: 16px;
     text-decoration: none;
     display: block;
+    min-height: 44px;
 }
 
 .dropdown-content a:hover {
     background-color: #ddd;
+}
+
+.dropdown-content a:active {
+    background-color: #ccc;
 }
 
 .dropdown:hover .dropdown-content {
@@ -109,29 +207,49 @@ p > b, strong, emph {
     font-weight: bold;
     -webkit-text-stroke: 1px black;
     margin: 0;
+    font-size: 1.5rem;
 }
 
 /* ===========================
-   WRAPPER & LAYOUTS
+    WRAPPER & LAYOUTS
 =========================== */
 .wrapper {
-    display: grid;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 750px;
-    margin-inline: auto;
-    padding-inline: 1rem; /* mobile breathing room */
+    display: flex;           /* Flexbox for better centering */
+    justify-content: center; /* Horizontally center */
+    align-items: center;     /* Vertically center */
+    margin: 0 auto;          /* Equal margins on both sides */
+    padding: 1rem;           /* Equal padding all around */
+}
+
+main {
+    padding: 1rem;
+    margin-top: 80px;
+}
+
+main h2 {
+    text-align: center;
+}
+
+main > p {
+    text-align: center;
 }
 
 .two-column-layout {
     display: grid;
-    grid-template-columns: repeat(2, auto);
+    grid-template-columns: repeat(2, 1fr);
     border: solid;
     border-radius: var(--main-border-radius, 15px);
     padding: 1rem;
-    width: max-content;
+    width: 100%;
     max-width: 100%;
     column-gap: 2rem;
+    row-gap: 1rem;
+    overflow: hidden;  /* Clips anything trying to escape */
+    transition: transform 500ms ease;  /* Transition on element */
+}
+
+.two-column-layout:hover  {
+    transform: scale(1.05);
 }
 
 .two-column-layout ol,
@@ -146,6 +264,25 @@ p > b, strong, emph {
     flex-direction: column;
     align-items: center;
     text-align: center;
+}
+
+/* Responsive Images */
+.two-column-layout img,
+.two-column-layout picture {
+    max-width: 100%;
+    height: auto;
+}
+
+.two-column-layout figure {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.two-column-layout figcaption {
+    margin-top: 0.5rem;
+    font-style: italic;
 }
 
 .about-me {
@@ -173,24 +310,26 @@ p > b, strong, emph {
     cursor: pointer;
     outline: none;
     color: #fff;
-    background-color: #04AA6D;
+    background-color: red;
     border: none;
     border-radius: 15px;
     box-shadow: 0 9px #999;
+    min-width: 44px;
+    min-height: 44px;
 }
 
 button:hover {
-    background-color: #3e8e41;
+    background-color: rgb(212, 68, 68);
 }
 
 .blow-up:active {
-    background-color: #3e8e41;
+    background-color: black;
     box-shadow: 0 5px #666;
     transform: translateY(4px);
 }
 
 /* ===========================
-   REVIEW BOX
+    REVIEW BOX
 =========================== */
 review-box {
     display: block;
@@ -199,6 +338,9 @@ review-box {
     padding: 1em;
     margin: 1.5em 0;
     background-color: #f9f9f9;
+    width: 100%;
+    box-sizing: border-box;
+
 }
 
 review-box h2 {
@@ -210,42 +352,70 @@ review-box p {
 }
 
 /* ===========================
-   MODERN CSS :has()
+    MODERN CSS :has()
 =========================== */
-/* Forms with invalid fields */
 form:has(input:invalid, textarea:invalid) {
     border: 2px solid red;
     background-color: #fff4f4;
 }
 
-/* Highlight dropdown when active */
 .dropdown:has(.dropdown-content:hover) .dropbtn {
     background-color: #c7b84d;
     transition: background-color 0.3s ease;
 }
 
-/* Soft glow on review-box textarea focus */
 review-box:has(textarea:focus) {
     box-shadow: 0 0 10px rgba(0, 128, 0, 0.3);
     transition: box-shadow 0.3s ease;
 }
 
 /* ===========================
-   RESPONSIVE DESIGN
+    TEXT WRAP FOR LONG HEADINGS
 =========================== */
+.two-column-layout h3,
+.two-column-layout h4 {
+    word-wrap: break-word;
+    overflow-wrap: anywhere;
+    text-align: center;
+    line-height: 1.3;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+}
+
+/* ======================================================
+    MOBILE RESPONSIVE (0-600px)
+====================================================== */
 @media screen and (max-width: 600px) {
-    .navbar {
-        flex-direction: column;
-        align-items: flex-start;
+    /* Show Hamburger, Hide Desktop Menu */
+    .hamburger-label {
+        display: flex;
     }
 
+    .dropdown {
+        display: none;
+    }
+
+    /* Mobile Navigation */
+    .navbar {
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+    }
+
+    .logo {
+        margin-left: auto;
+        transform: none;
+        font-size: 1.5rem;
+    }
+
+    /* Single Column Layout */
     .wrapper .two-column-layout {
         grid-template-columns: 1fr;
-        width: 100%;
-        border-style: none;
     }
 
-    /* Mobile: if only one child, center and expand */
     .two-column-layout:has(:only-child) {
         display: flex;
         flex-direction: column;
@@ -256,7 +426,6 @@ review-box:has(textarea:focus) {
         margin-inline: auto;
         padding: 1.5rem;
         gap: 1rem;
-        border-style: none;
     }
 
     iframe {
@@ -264,39 +433,112 @@ review-box:has(textarea:focus) {
         height: auto;
     }
 
-    .logo {
-        position: static;
-        transform: none;
-        text-align: center;
-        margin: 0.5rem auto;
+    main {
+        margin-top: 60px;
+    }
+
+    main h2 {
+        font-size: 1.5rem;
+    }
+
+    .two-row-layout {
+    padding: 1.5rem 1rem;
+    border-style: none;  /* Remove border on small screens */
+    }
+
+    .two-row-layout img {
+        max-width: 100%;
+        width: 100%;  /* Full width on mobile */
     }
 }
 
-/* Tablets and larger */
-@media screen and (min-width: 600px) {
+/* ======================================================
+    TABLET RESPONSIVE (601px - 1024px)
+====================================================== */
+@media screen and (min-width: 601px) and (max-width: 1024px) {
+    .wrapper {
+        max-width: 90%;
+        padding-inline: 2rem;
+    }
+
     .two-column-layout {
         grid-template-columns: repeat(2, 1fr);
-        max-width: 750px;
+        max-width: 100%;
         margin-inline: auto;
+        gap: 1.5rem;
     }
+
+    .logo {
+        font-size: 1.8rem;
+    }
+
+    main h2 {
+        font-size: 2rem;
+    }
+
+    /* Touch-friendly spacing for tablets */
+    .dropdown-content a {
+        padding: 18px;
+        min-height: 50px;
+    }
+
+    .dropbtn {
+        padding: 18px 26px;
+        min-height: 50px;
+    }
+
+    .about-me {
+        max-width: 90%;  /* Use more screen space */
+    }
+
+    .two-row-layout img {
+        max-width: 80%;  /* Slightly constrained */
+    }
+
 }
 
-/* ===========================
-   TEXT WRAP FOR LONG HEADINGS
-=========================== */
-.two-column-layout h3,
-.two-column-layout h4 {
-    word-wrap: break-word;
-    overflow-wrap: anywhere;
-    text-align: center;
-    line-height: 1.3;
-}
+/* ======================================================
+    DESKTOP RESPONSIVE (1025px+)
+====================================================== */
+@media screen and (min-width: 1025px) {
+    .wrapper {
+        max-width: 1200px;
+    }
 
-/* ===========================
-   NAVBAR STICKY
-=========================== */
-.navbar {
-    position: sticky;
-    top: 0;
-    z-index: 999;
+    .two-column-layout {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 1000px;
+        margin-inline: auto;
+        gap: 3rem;
+    }
+
+    .logo {
+        font-size: 2rem;
+    }
+
+    main {
+        margin-top: 100px;
+    }
+
+    main h2 {
+        font-size: 2.5rem;
+    }
+
+    main > p {
+        font-size: 1.2rem;
+    }
+
+    .two-row-layout {
+        max-width: 1000px;
+        padding: 2rem;
+    }   
+
+    .two-row-layout img {
+        max-width: 600px;  /* Prevent huge images */
+    }
+
+    .two-row-layout p {
+        font-size: 1.1rem;  /* Larger, easier to read */
+    }
+
 }
